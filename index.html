@@ -173,7 +173,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本站使用基于Node.js搭建的博客前端框架Hexo + GitHubPage搭建。</p>
+        <p>首先说明：本站使用基于Node.js搭建的博客前端框架Hexo + GitHubPage搭建。搭建的方法借鉴了这篇文章。<a href="https:jianshu.com/p/860d3e0fff58" target="_blank" rel="noopener">点击这里进入</a>。</p>
+<p>碰到的第一个问题是：已经在本地部署好的博客，上传到了github站点后，所有的样式CSS都失效了，究其原因：所发布站点的配置文件未修改，即_config.yml文件中的url地址和根目录，如下：</p>
+<pre><code>url: https://shelmin.github.io/blog.github.io/
+root: /blog.github.io
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:</code></pre><p>然后再重新上传，博客根目录下git bash内输入以下命令即可。</p>
+<pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><hr>
+<p>第二个问题是博客内主页的头像无法显示。如下：</p>
+<p><img src="/blog.github.io/blog.github.io/2020/05/16/%E7%BB%86%E6%95%B0%E6%90%AD%E5%BB%BA%E6%9C%AC%E7%AB%99%E7%9A%84%E5%9D%91%EF%BC%88yilia%E4%B8%BB%E9%A2%98%EF%BC%89/imgpro.png" alt="头像问题"></p>
 
       
 
@@ -188,10 +197,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -267,6 +272,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">闲谈</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -399,7 +408,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">闲谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -407,7 +416,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">闲谈</a>
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
             
             <div class="clearfix"></div>
