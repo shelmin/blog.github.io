@@ -183,7 +183,16 @@ pretty_urls:</code></pre><p>然后再重新上传，博客根目录下git bash�
 <pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><hr>
 <p>第二个问题是博客内主页的头像无法显示。如下：</p>
 <p><img src="/blog.github.io/blog.github.io/2020/05/16/%E7%BB%86%E6%95%B0%E6%90%AD%E5%BB%BA%E6%9C%AC%E7%AB%99%E7%9A%84%E5%9D%91%EF%BC%88yilia%E4%B8%BB%E9%A2%98%EF%BC%89/imgpro.png" alt="头像问题"></p>
-
+<hr>
+<p>第三个问题就是博客名和作者名的设置，应该在根目录的_config.yml中设置，而不是主题文件夹yilia下的_config.yml中设置，如下：</p>
+<pre><code># Site
+title: Hexo
+subtitle: &apos;&apos;
+description: &apos;&apos;
+keywords: try hard and be patient
+author: New Bee Shelmin
+language: en
+timezone: &apos;&apos;</code></pre>
       
 
       
