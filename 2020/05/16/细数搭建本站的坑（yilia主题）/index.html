@@ -16,8 +16,9 @@
 <meta property="og:description" content="首先说明：本站使用基于Node.js搭建的博客前端框架Hexo + GitHubPage搭建。搭建的方法借鉴了这篇文章。https:jianshu.com&#x2F;p&#x2F;860d3e0fff58。 碰到的第一个问题是：已经在本地部署好的博客，上传到了github站点后，所有的样式CSS都失效了，究其原因：所发布站点的配置文件未修改，即_config.yml文件中的url地址和根目录，如下： url: htt">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevbdtaxgkj305404amx0.jpg">
+<meta property="og:image" content="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevc8cga28j30q709v40o.jpg">
 <meta property="article:published_time" content="2020-05-16T00:31:42.000Z">
-<meta property="article:modified_time" content="2020-05-17T04:05:42.446Z">
+<meta property="article:modified_time" content="2020-05-17T04:34:19.612Z">
 <meta property="article:author" content="New Bee Shelmin">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
@@ -187,7 +188,9 @@ pretty_urls:</code></pre><p>然后再重新上传，博客根目录下git bash�
 <pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><hr>
 <p>第二个问题是博客内主页的头像无法显示。如下：</p>
 <p><img src="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevbdtaxgkj305404amx0.jpg" alt="头像问题"></p>
-<hr>
+<p>直接修改themes/yilia/layout/_partial/left-col.ejs的第六行为：</p>
+<pre><code>&lt;img src=&quot;&lt;%=theme.avatar%&gt;&quot; class=&quot;js-avatar show&quot;&gt;</code></pre><p>另外，将主题的_config.yml中的头像url设置为    </p>
+<pre><code>avatar: /source/img/jusper.jpg</code></pre><hr>
 <p>第三个问题就是博客名和作者名的设置，应该在根目录的_config.yml中设置，而不是主题文件夹yilia下的_config.yml中设置，如下：</p>
 <pre><code># Site
 title: Hexo
@@ -196,7 +199,10 @@ description: &apos;&apos;
 keywords: try hard and be patient
 author: New Bee Shelmin
 language: en
-timezone: &apos;&apos;</code></pre>
+timezone: &apos;&apos;</code></pre><hr>
+<p>第四个问题就是微博内图片的显示问题，这里提供的解决办法是使用微博图床，我将图片发布至微博后，用一个标签统一管理图床的图片作为备份和查询，以免以后图床失效（实际上直接点击下方的上传图片按钮,并上传本地图片,上传成功后,会在下方出现一张预览图,打开控制台找到这张图片的url,这就是新浪图床的url.并不需要发布微博）。</p>
+<p><img src="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevc8cga28j30q709v40o.jpg" alt="图片问题"></p>
+
       
 
       
