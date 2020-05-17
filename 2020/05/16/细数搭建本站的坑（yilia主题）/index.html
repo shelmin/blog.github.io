@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevbdtaxgkj305404amx0.jpg">
 <meta property="og:image" content="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevc8cga28j30q709v40o.jpg">
 <meta property="article:published_time" content="2020-05-16T00:31:42.000Z">
-<meta property="article:modified_time" content="2020-05-17T04:50:57.839Z">
+<meta property="article:modified_time" content="2020-05-17T05:23:33.615Z">
 <meta property="article:author" content="New Bee Shelmin">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
@@ -194,17 +194,17 @@ pretty_urls:</code></pre><p>然后再重新上传，博客根目录下git bash�
 <pre><code>avatar: /source/img/jusper.jpg</code></pre><p>但是该方法只能解决主页的头像无法显示的问题，不能解决博客内头像无法显示的问题。</p>
 <hr>
 <p>第三个问题就是博客名和作者名的设置，应该在根目录的_config.yml中设置，而不是主题文件夹yilia下的_config.yml中设置，如下：</p>
-<pre><code># Site
-title: Hexo
-subtitle: &apos;&apos;
-description: &apos;&apos;
-keywords: try hard and be patient
-author: New Bee Shelmin
-language: en
-timezone: &apos;&apos;</code></pre><hr>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: Hexo</span><br><span class="line">subtitle: ''</span><br><span class="line">description: ''</span><br><span class="line">keywords: try hard and be patient</span><br><span class="line">author: New Bee Shelmin</span><br><span class="line">language: en</span><br><span class="line">timezone: ''</span><br></pre></td></tr></table></figure>
+
+<hr>
 <p>第四个问题就是微博内图片的显示问题，这里提供的解决办法是使用微博图床，我将图片发布至微博后，用一个标签统一管理图床的图片作为备份和查询，以免以后图床失效（实际上直接点击下方的上传图片按钮,并上传本地图片,上传成功后,会在下方出现一张预览图,打开控制台找到这张图片的url,这就是新浪图床的url.并不需要发布微博）。</p>
 <p><img src="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevc8cga28j30q709v40o.jpg" alt="图片问题"></p>
-<p>使用图床的方法能解决博客内头像无法显示的问题，但是前段时间很多微博图床都挂了，如果遇到这种情况需要及时备份图片并寻找其他方法。</p>
+<p>使用图床的方法能解决博客内头像无法显示的问题，但是前段时间很多微博图床都挂了，如果遇到这种情况需要及时备份图片并寻找其他方法。这里给出一个<strong>暂时解决</strong>办法：</p>
+<pre><code>N:\blog\themes\yilia\layout\_partial\head.ejs</code></pre><p>在以上文件中添加一行：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"referrer"</span> <span class="attr">content</span>=<span class="string">"no-referrer"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>这样所有页面会以no-referrer的方法加载，微博服务器就不知道是哪个网站引用了他的图片了，也就没有外链限制的问题了。</p>
 
       
 
