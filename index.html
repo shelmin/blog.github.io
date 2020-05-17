@@ -198,8 +198,7 @@ pretty_urls:</code></pre><p>然后再重新上传，博客根目录下git bash�
 <pre><code>N:\blog\themes\yilia\layout\_partial\head.ejs</code></pre><p>在以上文件中添加一行：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"referrer"</span> <span class="attr">content</span>=<span class="string">"no-referrer"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-<p>这样所有页面会以no-referrer的方法加载，微博服务器就不知道是哪个网站引用了他的图片了，也就没有外链限制的问题了。</p>
+<p>这样所有页面会以<code>no-referrer</code>的方法加载，微博服务器就不知道是哪个网站引用了他的图片了，也就没有外链限制的问题了。</p>
 
       
 
@@ -425,15 +424,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">闲谈</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
             
             <div class="clearfix"></div>
