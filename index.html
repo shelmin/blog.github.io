@@ -174,7 +174,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先说明：本站使用基于Node.js搭建的博客前端框架Hexo + GitHubPage搭建。搭建的方法借鉴了这篇文章。<a href="https:jianshu.com/p/860d3e0fff58" target="_blank" rel="noopener">点击这里</a>。</p>
+        <p>首先说明：本站使用基于Node.js搭建的博客前端框架Hexo + GitHubPage搭建。搭建的方法借鉴了这篇文章。<a href="https://jianshu.com/p/860d3e0fff58" target="_blank" rel="noopener">https://jianshu.com/p/860d3e0fff58</a>。</p>
 <hr>
 <p>碰到的第一个问题是：已经在本地部署好的博客，上传到了github站点后，所有的样式CSS都失效了，究其原因：所发布站点的配置文件未修改，即_config.yml文件中的url地址和根目录，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">url: https:&#x2F;&#x2F;shelmin.github.io&#x2F;blog.github.io&#x2F;</span><br><span class="line">root: &#x2F;blog.github.io</span><br><span class="line">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br></pre></td></tr></table></figure>
