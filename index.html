@@ -195,6 +195,8 @@
     </span>
 </div>
           
+<!-- word count end -->
+<span id="/blog.github.io/2020/05/19/%E5%8A%A8%E6%80%81%E7%AE%80%E5%8E%86/" class="pageViews">X</span>
         
       </header>
     
@@ -277,6 +279,8 @@
     </span>
 </div>
           
+<!-- word count end -->
+<span id="/blog.github.io/2020/05/19/%E6%88%91%E7%9A%84%E7%AE%80%E5%8E%86%EF%BC%88%E4%BA%94%E7%99%BE%E4%B8%81%EF%BC%89/" class="pageViews">X</span>
         
       </header>
     
@@ -373,6 +377,8 @@
     </span>
 </div>
           
+<!-- word count end -->
+<span id="/blog.github.io/2020/05/18/chrome%E4%B9%A6%E7%AD%BE%E8%AF%AF%E5%88%A0%E5%90%8E%E8%82%BF%E4%B9%88%E5%8A%9E/" class="pageViews">X</span>
         
       </header>
     
@@ -471,6 +477,8 @@ Bookmarks.bak</code></pre><p>其中.bak文件是chrome书签的备份文件，�
     </span>
 </div>
           
+<!-- word count end -->
+<span id="/blog.github.io/2020/05/16/%E7%BB%86%E6%95%B0%E6%90%AD%E5%BB%BA%E6%9C%AC%E7%AB%99%E7%9A%84%E5%9D%91%EF%BC%88yilia%E4%B8%BB%E9%A2%98%EF%BC%89/" class="pageViews">X</span>
         
       </header>
     
@@ -572,6 +580,8 @@ Bookmarks.bak</code></pre><p>其中.bak文件是chrome书签的备份文件，�
     </span>
 </div>
           
+<!-- word count end -->
+<span id="/blog.github.io/2020/05/15/New-Bee-Shelmin%E7%9A%84%E8%A7%A3%E9%87%8A/" class="pageViews">X</span>
         
       </header>
     
@@ -705,6 +715,63 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 <script type="text/javascript" src="/blog.github.io/./click.js">
 </script>
 
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript"> 
+if(true){
+    var leancloud_app_id  = '98W8zPYogkXSBhMe2JdDddsJ-gzGzoHsz';
+    var leancloud_app_key = '4H1SJKpD5HrNm2wnnF75s8SP';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $("#page-nav").length > 0 ?true:false;
+    function showTime() {
+        var Counter = AV.Object.extend("Counter");
+        if(isIndex){
+            $(".pageViews").each(function(){
+                showPageViewsNum($(this),Counter);
+            });
+        }else{
+            addPageViewsNum($(".pageViews"));
+            showPageViewsNum($(".pageViews"),Counter);
+        }
+    }
+    function showPageViewsNum(ele,Counter){
+        var query = new AV.Query("Counter");
+        var url = ele.attr('id').trim();
+        query.equalTo("words",url);
+        query.find().then(function(results){
+        	if (results.length>0) $(document.getElementById(url)).text(results[0].get("views"));
+        	else $(document.getElementById(url)).text('0');
+        },function(error){$(document.getElementById(url)).text('0');});
+    }
+    function addPageViewsNum(ele){
+        var url = ele.attr('id').trim();var title = $('.article-title').text().trim();
+        var Counter = AV.Object.extend("Counter");
+        var now=new AV.Query(Counter);now.equalTo("words",url);
+        now.find().then(function(results){
+            if (results.length>0){
+                var query=results[0];
+                query.increment("views");
+                query.fetchWhenSave(true);
+                query.save();
+            } else{
+                var query = new Counter;
+                query.set("words",url);
+                query.set("title",title);
+                query.set("views",1);
+                query.save(null,{}).then(function (object) {});
+            }
+        },function(error){});
+    }
+    if(pageViewsLength){
+        showTime();
+    }
+}
+</script>
+
 
 
     
@@ -759,6 +826,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">闲谈</a>
               </li>
              
@@ -767,15 +838,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贴士</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贴士</a>
               </li>
             
             <div class="clearfix"></div>

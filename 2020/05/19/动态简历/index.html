@@ -195,6 +195,8 @@
     </span>
 </div>
           
+<!-- word count end -->
+<span id="/blog.github.io/2020/05/19/%E5%8A%A8%E6%80%81%E7%AE%80%E5%8E%86/" class="pageViews">X</span>
         
       </header>
     
@@ -397,6 +399,63 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 <script type="text/javascript" src="/blog.github.io/./click.js">
 </script>
 
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script type="text/javascript"> 
+if(true){
+    var leancloud_app_id  = '98W8zPYogkXSBhMe2JdDddsJ-gzGzoHsz';
+    var leancloud_app_key = '4H1SJKpD5HrNm2wnnF75s8SP';
+    AV.init({
+        appId: leancloud_app_id,
+        appKey: leancloud_app_key
+    });
+    var pageViewsLength = $(".pageViews").length;
+    var isIndex = $("#page-nav").length > 0 ?true:false;
+    function showTime() {
+        var Counter = AV.Object.extend("Counter");
+        if(isIndex){
+            $(".pageViews").each(function(){
+                showPageViewsNum($(this),Counter);
+            });
+        }else{
+            addPageViewsNum($(".pageViews"));
+            showPageViewsNum($(".pageViews"),Counter);
+        }
+    }
+    function showPageViewsNum(ele,Counter){
+        var query = new AV.Query("Counter");
+        var url = ele.attr('id').trim();
+        query.equalTo("words",url);
+        query.find().then(function(results){
+        	if (results.length>0) $(document.getElementById(url)).text(results[0].get("views"));
+        	else $(document.getElementById(url)).text('0');
+        },function(error){$(document.getElementById(url)).text('0');});
+    }
+    function addPageViewsNum(ele){
+        var url = ele.attr('id').trim();var title = $('.article-title').text().trim();
+        var Counter = AV.Object.extend("Counter");
+        var now=new AV.Query(Counter);now.equalTo("words",url);
+        now.find().then(function(results){
+            if (results.length>0){
+                var query=results[0];
+                query.increment("views");
+                query.fetchWhenSave(true);
+                query.save();
+            } else{
+                var query = new Counter;
+                query.set("words",url);
+                query.set("title",title);
+                query.set("views",1);
+                query.save(null,{}).then(function (object) {});
+            }
+        },function(error){});
+    }
+    if(pageViewsLength){
+        showTime();
+    }
+}
+</script>
+
 
 
     
@@ -451,6 +510,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">闲谈</a>
               </li>
              
@@ -459,15 +522,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贴士</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贴士</a>
               </li>
             
             <div class="clearfix"></div>
