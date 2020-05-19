@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevbdtaxgkj305404amx0.jpg">
 <meta property="og:image" content="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevc8cga28j30q709v40o.jpg">
 <meta property="article:published_time" content="2020-05-16T00:31:42.000Z">
-<meta property="article:modified_time" content="2020-05-17T10:43:02.214Z">
+<meta property="article:modified_time" content="2020-05-19T07:41:48.273Z">
 <meta property="article:author" content="New Bee Shelmin">
 <meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">688字</span>
+        <span class="post-count">879字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">3分</span>
       </span>
     </span>
 </div>
@@ -226,7 +226,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: Hexo</span><br><span class="line">subtitle: &#39;&#39;</span><br><span class="line">description: &#39;&#39;</span><br><span class="line">keywords: try hard and be patient</span><br><span class="line">author: New Bee Shelmin</span><br><span class="line">language: en</span><br><span class="line">timezone: &#39;&#39;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>第四个问题就是微博内图片的显示问题，这里提供的解决办法是使用微博图床，我将图片发布至微博后，用一个标签统一管理图床的图片作为备份和查询，以免以后图床失效（实际上直接点击下方的上传图片按钮,并上传本地图片,上传成功后,会在下方出现一张预览图,打开控制台找到这张图片的url,这就是新浪图床的url.并不需要发布微博）。</p>
+<p>第四个问题就是博客内图片的显示问题，这里提供的解决办法是使用微博图床，我将图片发布至微博后，用一个标签统一管理图床的图片作为备份和查询，以免以后图床失效（实际上直接点击下方的上传图片按钮,并上传本地图片,上传成功后,会在下方出现一张预览图,打开控制台找到这张图片的url,这就是新浪图床的url.并不需要发布微博）。</p>
 <p><img src="https://wx2.sinaimg.cn/orj360/006BimVhgy1gevc8cga28j30q709v40o.jpg" alt="图片问题"></p>
 <p>使用图床的方法能解决博客内头像无法显示的问题，但是前段时间很多微博图床都挂了，如果遇到这种情况需要及时备份图片并寻找其他方法。这里给出一个<strong>暂时解决</strong>办法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N:\blog\themes\yilia\layout\_partial\head.ejs</span><br></pre></td></tr></table></figure>
@@ -234,9 +234,20 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"referrer"</span> <span class="attr">content</span>=<span class="string">"no-referrer"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这样所有页面会以<code>no-referrer</code>的方法加载，微博服务器就不知道是哪个网站引用了他的图片了，也就没有外链限制的问题了。</p>
 <hr>
+<p>第五个问题，添加了博客内显示pdf的插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i hexo-pdf -S</span><br></pre></td></tr></table></figure>
+<p>– 在md文件引入就好（如果是网上的pdf那就不需要放在本地）</p>
+<p>– 本地的pdf需要写对路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf jianli.pdf %&#125;</span><br></pre></td></tr></table></figure>
+<p>由于在<code>hexo d</code>之前pdf本地存放在对应博客文件夹下的资源会自动映射到Github.io的当前文件下（如下），因此在md中写当前路径即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src&#x3D;&quot;https:&#x2F;&#x2F;shelmin.github.io&#x2F;blog.github.io&#x2F;2020&#x2F;05&#x2F;19&#x2F;%E6%88%91%E7%9A%84%E7%AE%80%E5%8E%86%EF%BC%88%E4%BA%94%E7%99%BE%E4%B8%81%EF%BC%89&#x2F;jianli.pdf&quot;</span><br></pre></td></tr></table></figure>
+
+<hr>
 <p>待解决的：</p>
 <ol>
 <li><p>关于使用本地的图片作为头像或微博图片出现的显示问题还需要研究（一般是由于<strong>路径</strong>问题）。</p>
+</li>
+<li><p>将pdf存放当云，用类似图床的办法解决博客内pdf的引用和显示。</p>
 </li>
 <li><p>浏览量不蒜子不生效。</p>
 </li>
@@ -512,10 +523,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">闲谈</a>
               </li>
              
@@ -525,6 +532,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">贴士</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
               </li>
              
               <li class="article-tag-list-item">
